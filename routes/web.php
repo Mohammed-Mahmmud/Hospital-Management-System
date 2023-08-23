@@ -20,12 +20,11 @@ use App\Http\Controllers\ProfileController;
 */
 
 Route::get('/', function () {
-    return view('layouts.home');
-})->name('home')->middleware('auth');
+    return view('welcome');
+})->name('website.home')->middleware('auth');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-    // return redirect()->route('home');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
