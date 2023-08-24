@@ -55,7 +55,7 @@
                                     <div class="dropdown-item bg-transparent text-wrap">
                                         <a href="index.html" class="btn btn-soft-secondary btn-sm rounded-pill">how to
                                             setup <i class="mdi mdi-magnify ms-1"></i></a>
-                                        <a href="{{ route('dashboard.index') }}" class="btn btn-soft-secondary btn-sm rounded-pill">buttons
+                                        <a href="{{ route('admin_panel.index') }}" class="btn btn-soft-secondary btn-sm rounded-pill">buttons
                                             <i class="mdi mdi-magnify ms-1"></i></a>
                                     </div>
                                     <!-- item-->
