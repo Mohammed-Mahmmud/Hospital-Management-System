@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('dashboard.layouts.master')
 
 @section('title')
 H-M-S | Admin Panel
