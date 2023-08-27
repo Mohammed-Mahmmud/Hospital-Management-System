@@ -20,7 +20,7 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('dashboard.user.auth.register');
+        return view('dashboard.user.auth.signup');
     }
 
     /**
