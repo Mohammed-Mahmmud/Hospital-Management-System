@@ -1,5 +1,7 @@
-@extends("dashboard.layouts.master2")
+@extends("dashboard.layouts.auth-master")
+
 @section("css")
+
 @endsection
 
 @section("js")

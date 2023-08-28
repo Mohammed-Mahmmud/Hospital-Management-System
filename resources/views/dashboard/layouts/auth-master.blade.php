@@ -6,7 +6,7 @@
 </head>
 <body>
     @yield('content')
-    @include('dashboard.layouts.auth.scripts')
     @include('dashboard.layouts.auth.footer')
+    @include('dashboard.layouts.auth.scripts')
 </body>
 </html>

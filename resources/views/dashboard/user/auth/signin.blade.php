@@ -1,16 +1,16 @@
-@extends("dashboard.layouts.master2")
+@extends("dashboard.layouts.auth-master")
 
 @section("css")
 <style>
     .loginForm{
-        display: none;
-        
+        display: none; 
     }
 </style>
 @endsection
 
-@section("js")
-@endsection
+
+
+
 
 @section("title")
 Sign In 
@@ -74,20 +74,21 @@ Sign In
                                             <p class="text-muted">Login to continue to Hospital System.</p>
                                         </div>
                                         {{-- login options --}}
-                                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                            <option selected>Choose login option</option>
-                                            <option value="" disabled>What are you!</option>
-                                            <option value="1">Patient</option>
-                                            <option value="2">Admin</option>
+                                        <select class="form-select form-select-l" id="sectionChooser">
+                                            <option selected disabled>login as </option>
+                                            <option value="user">Patient</option>
+                                            <option value="admin">Admin</option>
                                           </select>
+
                                         {{-- end options --}}
-                                        <div class="loginForm" >
+                                        {{-- user login --}}
+                                        <div class="loginForm" id="user">
                                         <div class="mt-4">
                                             <form method="POST" action="{{ route('user.login') }}">
                                                 @csrf
 
                                                 <div class="mb-3">
-                                                    <label for="username" class="form-label">User mail</label>
+                                                    <label for="username" class="form-label">User Email</label>
                                                     <input type="email"  class="form-control" name="email"  id="email" placeholder="Enter user mail" required autofocus autocomplete="username" :value="old('email')">
                                                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
 
@@ -98,7 +99,7 @@ Sign In
                                                     <div class="float-end">
                                                         <a href="auth-pass-reset-cover.html" class="text-muted">Forgot password?</a>
                                                     </div>
-                                                    <label class="form-label" for="password-input">Password</label>
+                                                    <label class="form-label" for="password-input">User Password</label>
                                                     <div class="position-relative auth-pass-inputgroup mb-3">
                                                         <input type="password"   name="password" class="form-control pe-5 password-input" placeholder="Enter password" id="password-input" required autocomplete="current-password">
                                                         <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
@@ -132,12 +133,71 @@ Sign In
 
                                             </form>
                                         </div>
-                                        </div>
-                                        {{-- end of login form --}}
                                         <div class="mt-5 text-center">
                                             <p class="mb-0">Don't have an account ? <a href="{{ route('user.register') }}" class="fw-bold text-primary text-decoration-underline"> Sign up</a> </p>
                                         </div>
                                     </div>
+                                        {{-- end of login form --}}
+
+                                        {{-- admin login --}}
+                                        <div class="loginForm" id="admin">
+                                            <div class="mt-4">
+                                                <form method="POST" action="{{ route('user.login') }}">
+                                                    @csrf
+    
+                                                    <div class="mb-3">
+                                                        <label for="username" class="form-label">Admin Email</label>
+                                                        <input type="email"  class="form-control" name="email"  id="email" placeholder="Enter admin mail" required autofocus autocomplete="username" :value="old('email')">
+                                                        <x-input-error :messages="$errors->get('email')" class="mt-2" />
+    
+                
+                                                    </div>
+    
+                                                    <div class="mb-3">
+                                                        <div class="float-end">
+                                                            <a href="auth-pass-reset-cover.html" class="text-muted">Forgot password?</a>
+                                                        </div>
+                                                        <label class="form-label" for="password-input">Admin Password</label>
+                                                        <div class="position-relative auth-pass-inputgroup mb-3">
+                                                            <input type="password"   name="password" class="form-control pe-5 password-input" placeholder="Enter password" id="password-input" required autocomplete="current-password">
+                                                            <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
+                                                        </div>
+                                                      
+                                                    </div>
+    
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="auth-remember-check">
+                                                        <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
+    
+                                                    </div>
+    
+                                                    <div class="mt-4">
+                                                        <button class="btn btn-success w-100" type="submit">Login</button>
+                                                    </div>
+    
+                                                    <div class="mt-4 text-center">
+                                                        <div class="signin-other-title">
+                                                            <h5 class="fs-14 mb-4 title">Sign In with</h5>
+                                                        </div>
+    
+                                                        <div>
+                                                            <button type="button" class="btn btn-primary btn-icon waves-effect waves-light"><i class="ri-facebook-fill fs-16"></i></button>
+                                                            <button type="button" class="btn btn-danger btn-icon waves-effect waves-light"><i class="ri-google-fill fs-16"></i></button>
+                                                            <button type="button" class="btn btn-dark btn-icon waves-effect waves-light"><i class="ri-github-fill fs-16"></i></button>
+                                                            <button type="button" class="btn btn-info btn-icon waves-effect waves-light"><i class="ri-twitter-fill fs-16"></i></button>
+                                                        </div>
+                                                    </div>
+    
+                                                </form>
+                                            </div>
+                                            
+                                            {{-- end of login form --}}
+                                        {{-- end admin login --}}
+                                        <div class="mt-5 text-center">
+                                            <p class="mb-0">Don't have an account ? <a href="{{ route('user.register') }}" class="fw-bold text-primary text-decoration-underline"> Sign up</a> </p>
+                                        </div>
+                                    </div>
+                                </div>
                                 </div>
                                 <!-- end col -->
                             </div>
@@ -153,4 +213,30 @@ Sign In
             <!-- end container -->
         </div>
         <!-- end auth page content -->
+@endsection
+
+@section("js")
+<script>
+    //     $('#sectionChooser').change(function(){ 
+    //             var myID = $(this).val() ; 
+    //             $('.loginForm').each(function(){
+    //                 myID === $(this).attr('id') ? $(this).show() : $(this).hide() ;
+    //         });
+    // });
+
+    $('#sectionChooser').change(function() {
+    var selectedID = $(this).val();
+
+    $('.loginForm').each(function() {
+        if ($(this).attr('id') === selectedID) {
+            $(this).show();
+        } else {
+            $(this).hide();
+        }
+    });
+});
+
+
+
+</script>
 @endsection
