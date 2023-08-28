@@ -17,3 +17,4 @@
 </div>
 <!-- end main content-->
 </div>
+@yield('footer')

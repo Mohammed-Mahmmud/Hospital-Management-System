@@ -1,5 +1,4 @@
 <?php
-
 return [
 
     /*
@@ -70,6 +69,12 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
+
+    
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Dashboard\Admin::class,
+            ],
 
         // 'users' => [
         //     'driver' => 'database',

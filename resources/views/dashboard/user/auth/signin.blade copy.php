@@ -1,23 +1,32 @@
-@extends("dashboard.layouts.master2")
+<!doctype html>
+<html lang="en" data-layout="twocolumn" data-sidebar="light" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
 
-@section("css")
-<style>
-    .loginForm{
-        display: none;
-        
-    }
-</style>
-@endsection
+<head>
 
-@section("js")
-@endsection
+    <meta charset="utf-8" />
+    <title>Sign In</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+    <meta content="Themesbrand" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="{{asset("dashboard/assets/images/favicon.ico")}}">
 
-@section("title")
-Sign In 
-@endsection
+    <!-- Layout config Js -->
+    <script src="{{asset("dashboard/assets/js/layout.js")}}"></script>
+    <!-- Bootstrap Css -->
+    <link href="{{asset("dashboard/assets/css/bootstrap.min.css")}}" rel="stylesheet" type="text/css" />
+    <!-- Icons Css -->
+    <link href="{{asset("dashboard/assets/css/icons.min.css")}}" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="{{asset("dashboard/assets/css/app.min.css")}}" rel="stylesheet" type="text/css" />
+    <!-- custom Css-->
+    <link href="{{asset("dashboard/assets/css/custom.min.css")}}" rel="stylesheet" type="text/css" />
 
-@section("content")
-  
+
+</head>
+
+<body>
+
     <!-- auth-page wrapper -->
     <div class="auth-page-wrapper auth-bg-cover py-5 d-flex justify-content-center align-items-center min-vh-100">
         <div class="bg-overlay"></div>
@@ -71,7 +80,7 @@ Sign In
                                     <div class="p-lg-5 p-4">
                                         <div>
                                             <h5 class="text-primary">Welcome Back !</h5>
-                                            <p class="text-muted">Login to continue to Hospital System.</p>
+                                            <p class="text-muted">Sign in to continue to Hospital System.</p>
                                         </div>
                                         {{-- login options --}}
                                         <select class="form-select form-select-sm" aria-label=".form-select-sm example">
@@ -135,7 +144,7 @@ Sign In
                                         </div>
                                         {{-- end of login form --}}
                                         <div class="mt-5 text-center">
-                                            <p class="mb-0">Don't have an account ? <a href="{{ route('user.register') }}" class="fw-bold text-primary text-decoration-underline"> Sign up</a> </p>
+                                            <p class="mb-0">Don't have an account ? <a href="auth-signup-cover.html" class="fw-bold text-primary text-decoration-underline"> Signup</a> </p>
                                         </div>
                                     </div>
                                 </div>
@@ -153,4 +162,35 @@ Sign In
             <!-- end container -->
         </div>
         <!-- end auth page content -->
-@endsection
+
+        <!-- footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="text-center">
+                            <p class="mb-0">&copy;
+                                <script>document.write(new Date().getFullYear())</script> <i class="mdi mdi-heart text-danger"></i> by Mohamed Khater
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- end Footer -->
+    </div>
+    <!-- end auth-page-wrapper -->
+
+    <!-- JAVASCRIPT -->
+    <script src="{{asset("dashboard/assets/libs/bootstrap/js/bootstrap.bundle.min.js")}}"></script>
+    <script src="{{asset("dashboard/assets/libs/simplebar/simplebar.min.js")}}"></script>
+    <script src="{{asset("dashboard/assets/libs/node-waves/waves.min.js")}}"></script>
+    <script src="{{asset("dashboard/assets/libs/feather-icons/feather.min.js")}}"></script>
+    <script src="{{asset("dashboard/assets/js/pages/plugins/lord-icon-2.1.0.js")}}"></script>
+    <script src="{{asset("dashboard/assets/js/plugins.js")}}"></script>
+
+    <!-- password-addon init -->
+    <script src="{{asset("dashboard/assets/js/pages/password-addon.init.js")}}"></script>
+</body>
+
+</html>

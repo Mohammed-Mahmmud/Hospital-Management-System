@@ -823,7 +823,11 @@
                                     <img class="rounded-circle header-profile-user"
                                         src="dashboard/assets/images/users/avatar-1.jpg" alt="Header Avatar">
                                     <span class="text-start ms-xl-2">
-                                        <span class="d-none d-xl-inline-block ms-1 fw-semibold user-name-text">{{ Auth::user()->name}}
+                                        {{-- @if(Auth::user()->name) --}}
+                                        <span class="d-none d-xl-inline-block ms-1 fw-semibold user-name-text">
+                                    {{-- @else --}}
+                                            {{-- <span class="d-none d-xl-inline-block ms-1 fw-semibold user-name-text">{{ Auth::user()->name}} --}}
+                                        {{-- @endif --}}
                                             </span>
                                         <span class="d-none d-xl-block ms-1 fs-12 user-name-sub-text">Founder</span>
                                     </span>
@@ -831,7 +835,12 @@
                             </button>
                             <div class="dropdown-menu dropdown-menu-end">
                                 <!-- item-->
-                                <h6 class="dropdown-header">Welcome {{ Auth::user()->email}}</h6>
+                                {{-- @if(!Auth::user()->email) --}}
+                                <h6 class="dropdown-header">Welcome</h6>
+                                {{-- @else --}}
+                                {{-- <h6 class="dropdown-header">Welcome {{ Auth::user()->email}}</h6>     --}}
+                                {{-- @endif --}}
+                                
                                 <a class="dropdown-item" href="{{ route('profile.edit') }}"><i
                                         class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span
                                         class="align-middle" >Profile</span></a>
@@ -855,9 +864,24 @@
                                 <a class="dropdown-item" href="auth-lockscreen-basic.html"><i
                                         class="mdi mdi-lock text-muted fs-16 align-middle me-1"></i> <span
                                         class="align-middle">Lock screen</span></a>
-                                <a class="dropdown-item" href="{{route('logout')}}"><i
-                                        class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span
-                                        class="align-middle" data-key="t-logout">Logout</span></a>
+                                {{-- <a class="dropdown-item" href="{{route('logout')}}">
+                                    <i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> 
+                                        <span class="align-middle" data-key="t-logout">Logout</span></a> --}}
+
+
+                                        <form method="POST" action="{{ route('logout') }}">
+                                            @csrf
+                                            <button class="btn btn-link" type="submit"> 
+                                                <i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> 
+                                            <span class="align-middle" data-key="t-logout">Logout</span>
+                                        </button>
+                                        </form>
+
+
+
+
+
+
                             </div>
                         </div>
                     </div>

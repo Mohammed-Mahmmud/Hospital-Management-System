@@ -1,32 +1,15 @@
-<!doctype html>
-<html lang="en" data-layout="twocolumn" data-sidebar="light" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
+@extends("dashboard.layouts.master2")
+@section("css")
+@endsection
 
-<head>
+@section("js")
+@endsection
 
-    <meta charset="utf-8" />
-    <title>Sign Up </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
-    <meta content="Themesbrand" name="author" />
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="{{asset("dashboard/assets/images/favicon.ico")}}">
+@section("title")
+Sign Up
+@endsection
 
-    <!-- Layout config Js -->
-    <script src="{{asset("dashboard/assets/js/layout.js")}}"></script>
-    <!-- Bootstrap Css -->
-    <link href="{{asset("dashboard/assets/css/bootstrap.min.css")}}" rel="stylesheet" type="text/css" />
-    <!-- Icons Css -->
-    <link href="{{asset("dashboard/assets/css/icons.min.css")}}" rel="stylesheet" type="text/css" />
-    <!-- App Css-->
-    <link href="{{asset("dashboard/assets/css/app.min.css")}}" rel="stylesheet" type="text/css" />
-    <!-- custom Css-->
-    <link href="{{asset("dashboard/assets/css/custom.min.css")}}" rel="stylesheet" type="text/css" />
-
-
-</head>
-
-<body>
-
+@section("content")
     <!-- auth-page wrapper -->
     <div class="auth-page-wrapper auth-bg-cover py-5 d-flex justify-content-center align-items-center min-vh-100">
         <div class="bg-overlay"></div>
@@ -80,7 +63,7 @@
                                     <div class="p-lg-5 p-4">
                                         <div>
                                             <h5 class="text-primary">Register Account</h5>
-                                            <p class="text-muted">Get your Free Velzon account now.</p>
+                                            <p class="text-muted">Sign up to Hospital System.</p>
                                         </div>
 
                                         <div class="mt-4">
@@ -149,7 +132,7 @@
 
                                             
                                         
-{{-- ------------------------------------------------------------------------------------------------------------------v --}}
+{{-- ------------------------------------------------------------------------------------------------------------------ --}}
                                                 <div class="mb-4">
                                                     <p class="mb-0 fs-13 text-muted fst-italic">By registering you agree to the Hospital System <a href="#" class="text-primary text-decoration-underline fst-normal fw-semibold">Terms of Use</a></p>
                                                 </div>
@@ -182,7 +165,7 @@
                                         </div>
 
                                         <div class="mt-5 text-center">
-                                            <p class="mb-0">Already have an account ? <a href="auth-signin-cover.html" class="fw-bold text-primary text-decoration-underline"> Signin</a> </p>
+                                            <p class="mb-0">Already have an account ? <a href="{{ route("user.login") }}" class="fw-bold text-primary text-decoration-underline"> Sign in</a> </p>
                                         </div>
                                     </div>
                                 </div>
@@ -198,37 +181,5 @@
             <!-- end container -->
         </div>
         <!-- end auth page content -->
-
-        <!-- footer -->
-        <footer class="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="text-center">
-                            <p class="mb-0">&copy;
-                                <script>document.write(new Date().getFullYear())</script> Velzon. Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- end Footer -->
-    </div>
-    <!-- end auth-page-wrapper -->
-
-    <!-- JAVASCRIPT -->
-    <script src="{{asset("dashboard/assets/libs/bootstrap/js/bootstrap.bundle.min.js")}}"></script>
-    <script src="{{asset("dashboard/assets/libs/simplebar/simplebar.min.js")}}"></script>
-    <script src="{{asset("dashboard/assets/libs/node-waves/waves.min.js")}}"></script>
-    <script src="{{asset("dashboard/assets/libs/feather-icons/feather.min.js")}}"></script>
-    <script src="{{asset("dashboard/assets/js/pages/plugins/lord-icon-2.1.0.js")}}"></script>
-    <script src="{{asset("dashboard/assets/js/plugins.js")}}"></script>
-
-    <!-- validation init -->
-    <script src="{{asset("dashboard/assets/js/pages/form-validation.init.js")}}"></script>
-    <!-- password create init -->
-    <script src="{{asset("dashboard/assets/js/pages/passowrd-create.init.js")}}"></script>
-</body>
-
-</html>
+@endsection
+       
