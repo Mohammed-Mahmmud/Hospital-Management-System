@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\AdminSessionController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
@@ -10,6 +11,20 @@ use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
+
+//#################################### Admin routes ############################################
+Route::middleware('guest')->group(function () {
+    Route::get('/admin/register', [RegisteredUserController::class, 'create'])
+                ->name('admin.register');
+
+    Route::post('/admin/register', [RegisteredUserController::class, 'store'])->name('admin.register.store');
+
+    Route::get('/admin/login', [AdminSessionController::class, 'create'])
+                ->name('admin.login');
+
+    Route::post('/admin/login', [AdminSessionController::class, 'store']);
+});
+//#################################### User routes ############################################
 
 Route::middleware('guest')->group(function () {
     Route::get('/user/register', [RegisteredUserController::class, 'create'])

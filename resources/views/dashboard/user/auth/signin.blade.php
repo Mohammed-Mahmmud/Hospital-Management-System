@@ -2,9 +2,9 @@
 
 @section("css")
 <style>
-    .loginForm{
+    /* .loginForm{
         display: none; 
-    }
+    } */
 </style>
 @endsection
 
@@ -73,14 +73,15 @@ Sign In
                                             <h5 class="text-primary">Welcome Back !</h5>
                                             <p class="text-muted">Login to continue to Hospital System.</p>
                                         </div>
+                                       
                                         {{-- login options --}}
-                                        <select class="form-select form-select-l" id="sectionChooser">
-                                            <option selected disabled>login as </option>
+                                         <select class="form-select form-select-l" id="sectionChooser">
+                                            <option  value="" selected disabled>login as </option>
                                             <option value="user">Patient</option>
                                             <option value="admin">Admin</option>
                                           </select>
-
                                         {{-- end options --}}
+
                                         {{-- user login --}}
                                         <div class="loginForm" id="user">
                                         <div class="mt-4">
@@ -89,7 +90,7 @@ Sign In
 
                                                 <div class="mb-3">
                                                     <label for="username" class="form-label">User Email</label>
-                                                    <input type="email"  class="form-control" name="email"  id="email" placeholder="Enter user mail" required autofocus autocomplete="username" :value="old('email')">
+                                                    <input type="email"  class="form-control" name="email"  id="useremail" placeholder="Enter user mail" required autofocus autocomplete="username" :value="old('email')">
                                                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
 
             
@@ -101,15 +102,14 @@ Sign In
                                                     </div>
                                                     <label class="form-label" for="password-input">User Password</label>
                                                     <div class="position-relative auth-pass-inputgroup mb-3">
-                                                        <input type="password"   name="password" class="form-control pe-5 password-input" placeholder="Enter password" id="password-input" required autocomplete="current-password">
+                                                        <input type="password"   name="password" class="form-control pe-5 password-input" placeholder="Enter password" id="user-password" required autocomplete="current-password">
                                                         <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
                                                     </div>
                                                   
                                                 </div>
 
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="auth-remember-check">
-                                                    {{-- <label class="form-check-label" for="auth-remember-check">Remember me</label> --}}
+                                                    <input class="form-check-input" type="checkbox" value="" id="user-auth-remember-check">
                                                     <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
 
                                                 </div>
@@ -137,17 +137,16 @@ Sign In
                                             <p class="mb-0">Don't have an account ? <a href="{{ route('user.register') }}" class="fw-bold text-primary text-decoration-underline"> Sign up</a> </p>
                                         </div>
                                     </div>
-                                        {{-- end of login form --}}
+                                       {{-- end of login form --}}
 
                                         {{-- admin login --}}
                                         <div class="loginForm" id="admin">
                                             <div class="mt-4">
-                                                <form method="POST" action="{{ route('user.login') }}">
+                                                <form method="POST" action="{{ route('admin.login') }}">
                                                     @csrf
-    
                                                     <div class="mb-3">
                                                         <label for="username" class="form-label">Admin Email</label>
-                                                        <input type="email"  class="form-control" name="email"  id="email" placeholder="Enter admin mail" required autofocus autocomplete="username" :value="old('email')">
+                                                        <input type="email"  class="form-control" name="email"  id="admin-email" placeholder="Enter admin mail" required autofocus autocomplete="username" :value="old('email')">
                                                         <x-input-error :messages="$errors->get('email')" class="mt-2" />
     
                 
@@ -159,14 +158,14 @@ Sign In
                                                         </div>
                                                         <label class="form-label" for="password-input">Admin Password</label>
                                                         <div class="position-relative auth-pass-inputgroup mb-3">
-                                                            <input type="password"   name="password" class="form-control pe-5 password-input" placeholder="Enter password" id="password-input" required autocomplete="current-password">
-                                                            <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
+                                                            <input type="password"   name="password" class="form-control pe-5 password-input" placeholder="Enter password" id="admin-password" required autocomplete="current-password">
+                                                            <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="admin-password-addon"><i class="ri-eye-fill align-middle"></i></button>
                                                         </div>
                                                       
                                                     </div>
     
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="" id="auth-remember-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="admin-auth-remember-check">
                                                         <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
     
                                                     </div>
@@ -192,9 +191,10 @@ Sign In
                                             </div>
                                             
                                             {{-- end of login form --}}
+
                                         {{-- end admin login --}}
                                         <div class="mt-5 text-center">
-                                            <p class="mb-0">Don't have an account ? <a href="{{ route('user.register') }}" class="fw-bold text-primary text-decoration-underline"> Sign up</a> </p>
+                                            <p class="mb-0">Don't have an account ? <a href="{{ route('admin.register') }}" class="fw-bold text-primary text-decoration-underline"> Sign up</a> </p>
                                         </div>
                                     </div>
                                 </div>
@@ -215,28 +215,15 @@ Sign In
         <!-- end auth page content -->
 @endsection
 
-@section("js")
+@section('js')
 <script>
-    //     $('#sectionChooser').change(function(){ 
-    //             var myID = $(this).val() ; 
-    //             $('.loginForm').each(function(){
-    //                 myID === $(this).attr('id') ? $(this).show() : $(this).hide() ;
-    //         });
-    // });
-
-    $('#sectionChooser').change(function() {
-    var selectedID = $(this).val();
-
-    $('.loginForm').each(function() {
-        if ($(this).attr('id') === selectedID) {
-            $(this).show();
-        } else {
-            $(this).hide();
-        }
+    $('#sectionChooser').change(function(){ 
+        var myid = $(this).val() ; 
+        $('.loginForm').each(function(){
+            myid === $(this).attr('id') ? $(this).show() : $(this).hide();
+        });
     });
-});
-
-
-
 </script>
+
+
 @endsection
