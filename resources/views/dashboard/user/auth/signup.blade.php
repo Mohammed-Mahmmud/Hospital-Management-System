@@ -8,7 +8,7 @@
 @endsection
 
 @section("title")
-Sign Up
+H-M-S | Sign Up
 @endsection
 
 @section("content")

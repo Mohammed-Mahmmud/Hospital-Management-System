@@ -13,7 +13,7 @@
 
 
 @section("title")
-Sign In 
+H-M-S | Sign In 
 @endsection
 
 @section("content")

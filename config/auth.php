@@ -76,10 +76,7 @@ return [
             'model' => App\Models\Dashboard\Admin::class,
             ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+       
     ],
 
     /*

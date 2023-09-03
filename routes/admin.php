@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\Dashboard\HomeController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ProfileController;
 
@@ -20,7 +19,7 @@ use App\Http\Controllers\ProfileController;
     logging email => Auth::user()->email;
 
 */
-Route::prefix('admin')->middleware('auth')->group(function(){
+Route::prefix('admin')->middleware('auth:admin')->group(function(){
     Route::resource('/',HomeController::class)->names("admin_panel");
 });
 
