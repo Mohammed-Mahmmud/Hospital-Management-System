@@ -1,9 +1,11 @@
 <?php
 
-use App\Http\Controllers\Dashboard\HomeController;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use App\Providers\RouteServiceProvider;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Auth\AdminController;
+use App\Http\Controllers\Dashboard\HomeController;
 
 
 /*
@@ -18,19 +20,29 @@ use App\Http\Controllers\ProfileController;
     logging name => Auth::user()->name;
     logging email => Auth::user()->email;
 
-*/
-Route::prefix('admin')->middleware('auth:admin')->group(function(){
-    Route::resource('/',HomeController::class)->names("admin_panel");
-});
+*/  
 
-Route::get('/admin/dashboard', function () {
-    return view('dashboard.dashboard');
-})->middleware(['auth', 'verified'])->name('admin.dashboard');
 
-Route::get('/admin/auth/dashboard', function () {
-    return "welcome";
-})->middleware(['auth:admin', 'verified'])->name('auth.dashboard');
+Route::get('/dashboard/admin',[AdminController::class,"index"])
+            ->middleware(['auth:admin', 'verified'])->name('admin.dashboard');
 
+Route::get('/dashboard/user', function () {
+    return view('dashboard.user.home');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+    Route::get("/admin",function(){
+    //     (auth('admin')->check()
+        
+         if(auth('admin')->check()){
+        return  redirect(RouteServiceProvider::ADMIN);
+         }
+         else{
+            return  redirect(RouteServiceProvider::HOME);
+     }
+     
+
+            
+    })->name("panel");
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

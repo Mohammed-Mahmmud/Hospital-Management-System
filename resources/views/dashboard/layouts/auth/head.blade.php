@@ -16,4 +16,5 @@
     <link href="{{asset("dashboard/assets/css/app.min.css")}}" rel="stylesheet" type="text/css" />
     <!-- custom Css-->
     <link href="{{asset("dashboard/assets/css/custom.min.css")}}" rel="stylesheet" type="text/css" />
+    
 @yield('css')

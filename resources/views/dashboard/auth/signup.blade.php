@@ -1,10 +1,22 @@
 @extends("dashboard.layouts.auth-master")
 
 @section("css")
-
+<style>
+    .registerform {
+        display: none;
+    }
+</style>
 @endsection
 
 @section("js")
+<script>
+    $('#sectionChooser').change(function() {
+            var myid = $(this).val();
+            $('.registerform').each(function() {
+                myid === $(this).attr('id') ? $(this).show() : $(this).hide();
+            });
+        });
+</script>
 @endsection
 
 @section("title")
@@ -44,13 +56,13 @@ H-M-S | Sign Up
                                                     </div>
                                                     <div class="carousel-inner text-center text-white-50 pb-5">
                                                         <div class="carousel-item active">
-                                                            <p class="fs-15 fst-italic">" Great! Clean code, clean design, easy for customization. Thanks very much! "</p>
+                                                            <p class="fs-15 fst-italic">" Great! Clean code, clean design, easy for customization. Thanks very much!"</p>
                                                         </div>
                                                         <div class="carousel-item">
-                                                            <p class="fs-15 fst-italic">" The theme is really great with an amazing customer support."</p>
+                                                            <p class="fs-15 fst-italic">" This System is designed to introduce you to the core principles and rules you'll need to follow to write functional."</p>
                                                         </div>
                                                         <div class="carousel-item">
-                                                            <p class="fs-15 fst-italic">" Great! Clean code, clean design, easy for customization. Thanks very much! "</p>
+                                                            <p class="fs-15 fst-italic">"Best agile practices of cleaning code Software System·Endure and succeed swirling ."</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -68,16 +80,18 @@ H-M-S | Sign Up
                                             <p class="text-muted">Sign up to Hospital System.</p>
                                         </div>
 
+                                        <select class="form-select form-select-l" id="sectionChooser">
+                                            <option value="" selected disabled>Register as </option>
+                                            <option value="user">Patient</option>
+                                            <option value="admin">Admin</option>
+                                        </select>
+
+                                        {{-- signup form  --}}
+                                        <div class="registerform" id="user">
                                         <div class="mt-4">
                                             <form method="POST" action="{{ route('user.register') }}">
                                                 @csrf
-                                               
-                                                {{-- <div class="mt-4"> --}}
-                                                    {{-- <x-input-label for="email" :value="__('User Email')" /> --}}
-                                                    {{-- <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" /> --}}
-                                                    
-                                                {{-- </div> --}}
-                                                
+                                                                                        
                                                 <div class="mb-3">
                                                     <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
                                                     <input type="email" class="form-control" id="email" name="email"  placeholder="Enter email address"  required autocomplete="username">
@@ -89,7 +103,7 @@ H-M-S | Sign Up
                                                 </div> 
 
 
-                                               
+                                            
 
                                                 <div class="mb-3">
                                                     <label for="name" class="form-label">Username <span class="text-danger">*</span></label>
@@ -165,10 +179,110 @@ H-M-S | Sign Up
                                                 </div>
                                             </form>
                                         </div>
-
-                                        <div class="mt-5 text-center">
+                                        {{-- <div class="mt-5 text-center">
                                             <p class="mb-0">Already have an account ? <a href="{{ route("user.login") }}" class="fw-bold text-primary text-decoration-underline"> Sign in</a> </p>
+                                        </div> --}}
+                                    </div>
+                                        {{-- end of signup form --}}
+
+                                        {{-- register form  --}}
+                                        <div  class="registerform" id="admin">
+                                        <div class="mt-4">
+                                            <form method="POST" action="{{ route('admin.register') }}">
+                                                @csrf
+                                                                                        
+                                                <div class="mb-3">
+                                                    <label for="email" class="form-label"> Admin Email <span class="text-danger">*</span></label>
+                                                    <input type="email" class="form-control" id="email" name="email"  placeholder="Enter email address"  required autocomplete="username">
+                                                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                                                    <div class="invalid-feedback">
+                                                        Please enter email
+                                                    </div>
+                                                </div> 
+
+
+                                               
+
+                                                <div class="mb-3">
+                                                    <label for="name" class="form-label">Admin Name <span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" id="name" placeholder="Enter username" required type="text" name="name"  required autofocus autocomplete="name">
+                                                    <div class="invalid-feedback">
+                                                        <x-input-error :messages="$errors->get('name')" class="mt-2" />
+
+                                                        Please enter name
+                                                    </div>
+                                                </div>
+
+
+
+                                            
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="password">Admin Password</label>
+                                                    <div class="position-relative auth-pass-inputgroup">
+                                                        <input type="password" name="password" class="form-control pe-5 password-input" onpaste="return false" placeholder="Enter password" id="password" aria-describedby="passwordInput" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                                                        <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
+                                                        <div class="invalid-feedback">
+                                                            
+                                                            Please enter password
+                                                        </div>
+                                                    </div>
+                                                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                                                </div>
+{{-- ------------------------------------------------------------------------------------------------------------------ --}}
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="password_confirmation">admin Confirm Password</label>
+                                                    <div class="position-relative auth-pass-inputgroup">
+                                                        <input type="password" name="password_confirmation" class="form-control pe-5 password-input" onpaste="return false" placeholder="Enter password" id="password_confirmation" aria-describedby="passwordInput" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required autocomplete="new-password" >
+                                                        <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
+                                                        <div class="invalid-feedback">
+                                                            
+                                                            Please enter password
+                                                        </div>
+                                                        <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+
+                                                    </div>
+                                                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                                                </div>
+
+                                            
+                                        
+{{-- ------------------------------------------------------------------------------------------------------------------ --}}
+                                                <div class="mb-4">
+                                                    <p class="mb-0 fs-13 text-muted fst-italic">By registering you agree to the Hospital System <a href="#" class="text-primary text-decoration-underline fst-normal fw-semibold">Terms of Use</a></p>
+                                                </div>
+
+                                                <div id="password-contain" class="p-3 bg-light mb-2 rounded">
+                                                    <h5 class="fs-13">Password must contain:</h5>
+                                                    <p id="pass-length" class="invalid fs-13 mb-2">Minimum <b>8 characters</b></p>
+                                                    <p id="pass-lower" class="invalid fs-13 mb-2">At <b>lowercase</b> letter (a-z)</p>
+                                                    <p id="pass-upper" class="invalid fs-13 mb-2">At least <b>uppercase</b> letter (A-Z)</p>
+                                                    <p id="pass-number" class="invalid fs-13 mb-0">A least <b>number</b> (0-9)</p>
+                                                </div>
+
+                                                <div class="mt-4">
+                                                    <button class="btn btn-success w-100" type="submit">Register</button>
+                                                </div>
+
+                                                <div class="mt-4 text-center">
+                                                    <div class="signin-other-title">
+                                                        <h5 class="fs-14 mb-4 title text-muted">Create account with</h5>
+                                                    </div>
+
+                                                    <div>
+                                                        <button type="button" class="btn btn-primary btn-icon waves-effect waves-light"><i class="ri-facebook-fill fs-16"></i></button>
+                                                        <button type="button" class="btn btn-danger btn-icon waves-effect waves-light"><i class="ri-google-fill fs-16"></i></button>
+                                                        <button type="button" class="btn btn-dark btn-icon waves-effect waves-light"><i class="ri-github-fill fs-16"></i></button>
+                                                        <button type="button" class="btn btn-info btn-icon waves-effect waves-light"><i class="ri-twitter-fill fs-16"></i></button>
+                                                    </div>
+                                                </div>
+                                            </form>
                                         </div>
+                                        {{-- end of register form --}}
+                                    </div>
+                                    
+                                    <div class="mt-5 text-center">
+                                        <p class="mb-0">Already have an account ? <a href="{{ route("admin.login") }}" class="fw-bold text-primary text-decoration-underline">Login</a></p>
+                                    </div>
                                     </div>
                                 </div>
                             </div>

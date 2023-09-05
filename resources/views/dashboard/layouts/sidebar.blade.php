@@ -3,21 +3,21 @@
     <!-- LOGO -->
     <div class="navbar-brand-box">
         <!-- Dark Logo-->
-        <a href="{{ route("admin_panel.index") }}" class="logo logo-dark">
+        <a href="{{ route("panel") }}" class="logo logo-dark">
             <span class="logo-sm">
-                <img src="dashboard/assets/images/logo-sm.png" alt="" height="22">
+                <img src="{{asset("dashboard/assets/images/logo-sm.png")}}" alt="" height="22">
             </span>
             <span class="logo-lg">
-                <img src="dashboard/assets/images/logo-dark.png" alt="" height="17">
+                <img src="{{asset("dashboard/assets/images/logo-dark.png")}}" alt="" height="17">
             </span>
         </a>
         <!-- Light Logo-->
-        <a href="{{ route("admin_panel.index") }}" class="logo logo-light">
+        <a href="{{ route("panel") }}" class="logo logo-light">
             <span class="logo-sm">
-                <img src="dashboard/assets/images/logo-sm.png" alt="" height="22">
+                <img src="{{asset("dashboard/assets/images/logo-sm.png")}}" alt="" height="22">
             </span>
             <span class="logo-lg">
-                <img src="dashboard/assets/images/logo-light.png" alt="" height="17">
+                <img src="{{asset("dashboard/assets/images/logo-light.png")}}" alt="" height="17">
             </span>
         </a>
         <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
@@ -34,11 +34,11 @@
             <ul class="navbar-nav" id="navbar-nav">
                 <li class="menu-title"><span data-key="t-menu">Menu</span></li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse"
-                        role="button" aria-expanded="false" aria-controls="sidebarDashboards">
-                        <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Dashboards</span>
+                    <a class="nav-link menu-link" href="#sidebardashboards" data-bs-toggle="collapse"
+                        role="button" aria-expanded="false" aria-controls="sidebardashboards">
+                        <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">dashboards</span>
                     </a>
-                    <div class="collapse menu-dropdown" id="sidebarDashboards">
+                    <div class="collapse menu-dropdown" id="sidebardashboards">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a href="dashboard-analytics.html" class="nav-link" data-key="t-analytics">
@@ -48,7 +48,7 @@
                                 <a href="dashboard-crm.html" class="nav-link" data-key="t-crm"> CRM </a>
                             </li>
                             <li class="nav-item">
-                                <a href="index.html" class="nav-link" data-key="t-ecommerce"> Ecommerce </a>
+                                <a href="{{ route('panel') }}" class="nav-link" data-key="t-ecommerce"> Ecommerce </a>
                             </li>
                             <li class="nav-item">
                                 <a href="dashboard-crypto.html" class="nav-link" data-key="t-crypto"> Crypto
@@ -66,7 +66,7 @@
                             </li>
                         </ul>
                     </div>
-                </li> <!-- end Dashboard Menu -->
+                </li> <!-- end dashboard Menu -->
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarApps" data-bs-toggle="collapse"
                         role="button" aria-expanded="false" aria-controls="sidebarApps">
@@ -477,7 +477,7 @@
                             </li>
                         </ul>
                     </div>
-                </li> <!-- end Dashboard Menu -->
+                </li> <!-- end dashboard Menu -->
 
                 <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Pages</span>
                 </li>

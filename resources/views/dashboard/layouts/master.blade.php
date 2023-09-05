@@ -12,6 +12,6 @@
     @include('dashboard.layouts.footer')
     @include('dashboard.layouts.theme-settings')
     @include('dashboard.layouts.scripts')
-    
+
 </body>
 </html>

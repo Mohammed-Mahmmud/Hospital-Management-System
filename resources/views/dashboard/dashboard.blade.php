@@ -2,7 +2,7 @@
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             <a href="/admin" style="color:aqua;">
-                {{ __('Admin Panel') }}
+                {{ __('Dashboard') }}
             </a>
         </h2>
     </x-slot>
