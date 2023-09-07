@@ -8,8 +8,8 @@ return [
     'supportedLocales' => [
         //'ace'         => ['name' => 'Achinese',               'script' => 'Latn', 'native' => 'Aceh', 'regional' => ''],
         //'af'          => ['name' => 'Afrikaans',              'script' => 'Latn', 'native' => 'Afrikaans', 'regional' => 'af_ZA'],
-        //'agq'         => ['name' => 'Aghem',                  'script' => 'Latn', 'native' => 'Aghem', 'regional' => ''],
-        //'ak'          => ['name' => 'Akan',                   'script' => 'Latn', 'native' => 'Akan', 'regional' => 'ak_GH'],
+        // 'agq'         => ['name' => 'Aghem',                  'script' => 'Latn', 'native' => 'Aghem', 'regional' => ''],
+        // 'ak'          => ['name' => 'Akan',                   'script' => 'Latn', 'native' => 'Akan', 'regional' => 'ak_GH'],
         //'an'          => ['name' => 'Aragonese',              'script' => 'Latn', 'native' => 'aragonés', 'regional' => 'an_ES'],
         //'cch'         => ['name' => 'Atsam',                  'script' => 'Latn', 'native' => 'Atsam', 'regional' => ''],
         //'gn'          => ['name' => 'Guaraní',                'script' => 'Latn', 'native' => 'Avañe’ẽ', 'regional' => ''],

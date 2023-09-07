@@ -25,12 +25,14 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $request->authenticate();
-
-        $request->session()->regenerate();
-
-        return redirect()->intended(RouteServiceProvider::HOME);
+        if($request->authenticate()){
+            $request->session()->regenerate();
+            return redirect()->intended(RouteServiceProvider::HOME);
+        }
+    
+            return redirect()->back()->withErrors([ 'name'=>"Wrong User Mail or Password"]);
     }
+    
 
     /**
      * Destroy an authenticated session.
@@ -43,6 +45,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect("/admin");
+        return redirect()->route('panel');
     }
 }

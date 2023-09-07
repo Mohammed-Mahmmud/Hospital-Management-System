@@ -79,7 +79,18 @@
                                             <h5 class="text-primary">Welcome Back !</h5>
                                             <p class="text-muted">Login to continue to Hospital System.</p>
                                         </div>
-
+                                       
+                                       {{-- handle error --}}
+                                       @if ($errors->any())
+                                       <div class="alert alert-danger">
+                                           <ul>
+                                               @foreach ($errors->all() as $error)
+                                                   <li>{{ $error }}</li>
+                                               @endforeach
+                                           </ul>
+                                       </div>
+                                   @endif
+                                   {{-- end error --}}
                                         {{-- login options --}}
                                         <select class="form-select form-select-l" id="sectionChooser">
                                             <option value="" selected disabled>login as </option>

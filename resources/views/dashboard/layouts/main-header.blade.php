@@ -6,6 +6,7 @@
                 <div class="navbar-header">
                     <div class="d-flex">
                         <!-- LOGO -->
+                        {{--  --}}
                         <div class="navbar-brand-box horizontal-logo">
                             <a href="{{ route("panel") }}" class="logo logo-dark">
                                 <span class="logo-sm">
@@ -159,73 +160,32 @@
                         <div class="dropdown ms-1 topbar-head-dropdown header-item">
                             <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img id="header-lang-img" src="{{asset("dashboard/assets/images/flags/us.svg")}}" alt="Header Language"
+                                @if(App::getLocale()== "ar")
+                                <img id="header-lang-img" src="{{asset("dashboard/assets/images/flags/eg.svg.png")}}" alt="Header Language"
+                                height="20" class="rounded">
+                                @else
+                                <img id="header-lang-img" src="{{asset("dashboard/assets/images/flags/us.svg.png")}}" alt="Header Language"
                                     height="20" class="rounded">
+                                @endif
                             </button>
+                           
                             <div class="dropdown-menu dropdown-menu-end">
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item language py-2"
-                                    data-lang="en" title="English">
-                                    <img src="{{asset("dashboard/assets/images/flags/us.svg")}}" alt="user-image" class="me-2 rounded"
-                                        height="18">
-                                    <span class="align-middle">English</span>
+                                <!-- item--> 
+                                  @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}"
+                                   href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                    @if($properties['native'] == "English")
+                                        <i class="flag-icon flag-icon-us"></i>
+                                        <img id="header-lang-img" src="{{asset("dashboard/assets/images/flags/us.svg.png")}}" alt="Header Language"
+                                height="20" class="rounded">
+                                    @elseif($properties['native'] == "العربية")
+                                        <i class="flag-icon flag-icon-eg"></i>
+                                        <img id="header-lang-img" src="{{asset("dashboard/assets/images/flags/eg.svg.png")}}" alt="Header Language"
+                                              height="20" class="rounded">
+                                    @endif
+                                    {{ $properties['native'] }}
                                 </a>
-
-                                <!-- item-->
-                                {{-- <a href="javascript:void(0);" class="dropdown-item notify-item language"
-                                    data-lang="sp" title="Spanish">
-                                    <img src="{{asset("dashboard/assets/images/flags/spain.svg")}}" alt="user-image" class="me-2 rounded"
-                                        height="18">
-                                    <span class="align-middle">Española</span>
-                                </a> --}}
-
-                                <!-- item-->
-                                {{-- <a href="javascript:void(0);" class="dropdown-item notify-item language"
-                                    data-lang="gr" title="German">
-                                    <img src="{{asset("dashboard/assets/images/flags/germany.svg")}}" alt="user-image" class="me-2 rounded"
-                                        height="18"> <span class="align-middle">Deutsche</span>
-                                </a> --}}
-
-                                <!-- item-->
-                                {{-- <a href="javascript:void(0);" class="dropdown-item notify-item language"
-                                    data-lang="it" title="Italian">
-                                    <img src="{{asset("dashboard/assets/images/flags/italy.svg")}}" alt="user-image" class="me-2 rounded"
-                                        height="18">
-                                    <span class="align-middle">Italiana</span>
-                                </a> --}}
-
-                                <!-- item-->
-                                {{-- <a href="javascript:void(0);" class="dropdown-item notify-item language"
-                                    data-lang="ru" title="Russian">
-                                    <img src="{{asset("dashboard/assets/images/flags/russia.svg")}}" alt="user-image" class="me-2 rounded"
-                                        height="18">
-                                    <span class="align-middle">русский</span>
-                                </a> --}}
-
-                                <!-- item-->
-                                {{-- <a href="javascript:void(0);" class="dropdown-item notify-item language"
-                                    data-lang="ch" title="Chinese">
-                                    <img src="{{asset("dashboard/assets/images/flags/china.svg")}}" alt="user-image" class="me-2 rounded"
-                                        height="18">
-                                    <span class="align-middle">中国人</span>
-                                </a> --}}
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item language"
-                                    data-lang="fr" title="French">
-                                    <img src="{{asset("dashboard/assets/images/flags/french.svg")}}" alt="user-image" class="me-2 rounded"
-                                        height="18">
-                                    <span class="align-middle">français</span>
-                                </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item language"
-                                    data-lang="ar" title="Arabic">
-                                    <img src="{{asset("dashboard/assets/images/flags/ae.svg")}}" alt="user-image" class="me-2 rounded"
-                                        height="18">
-                                    <span class="align-middle">Arabic</span>
-                                </a>
+                            @endforeach
                             </div>
                         </div>
 

@@ -24,8 +24,7 @@ class AdminController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        //
+    {  
         return view("dashboard.admin.home");
     }
 
@@ -34,13 +33,13 @@ class AdminController extends Controller
      */
     public function store(AdminLoginRequest $request)
     {
-        //
-        $request->authenticate();
-
+        if($request->authenticate()){
         $request->session()->regenerate();
         return redirect()->intended(RouteServiceProvider::ADMIN);
     }
-
+    
+        return redirect()->back()->withErrors([ 'name'=>"Wrong Admin Mail or Password"]);
+}
     /**
      * Display the specified resource.
      */
@@ -74,6 +73,6 @@ class AdminController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect("/admin");
+        return redirect()->route('panel');
     }
 }

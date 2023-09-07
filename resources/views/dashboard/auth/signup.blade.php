@@ -79,7 +79,17 @@ H-M-S | Sign Up
                                             <h5 class="text-primary">Register Account</h5>
                                             <p class="text-muted">Sign up to Hospital System.</p>
                                         </div>
-
+                                        {{-- handle error --}}
+                                        @if ($errors->any())
+                                        <div class="alert alert-danger">
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif
+                                    {{-- end error --}}
                                         <select class="form-select form-select-l" id="sectionChooser">
                                             <option value="" selected disabled>Register as </option>
                                             <option value="user">Patient</option>
