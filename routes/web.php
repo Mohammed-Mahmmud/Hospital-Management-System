@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +21,16 @@ use App\Http\Controllers\ProfileController;
 
 */
 
-Route::get('/', function () {
-    return view('dashboard.welcome');
-})->name('website.home')->middleware('auth');
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+    ], function(){
+ 
+    Route::get('/', function () {
+        return view('dashboard.welcome');
+    })->name('website.home')->middleware('auth');
+
+
+
+});

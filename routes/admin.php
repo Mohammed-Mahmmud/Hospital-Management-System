@@ -5,7 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Providers\RouteServiceProvider;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\AdminController;
-use App\Http\Controllers\Dashboard\HomeController;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+
+
 
 
 /*
@@ -22,13 +24,18 @@ use App\Http\Controllers\Dashboard\HomeController;
 
 */  
 
-
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+    ], function(){
+  
 Route::get('/dashboard/admin',[AdminController::class,"index"])
             ->middleware(['auth:admin', 'verified'])->name('admin.dashboard');
 
-Route::get('/dashboard/user', function () {
+Route::get('/dashboard/patient', function () {
     return view('dashboard.user.home');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified'])->name('user.dashboard');
 
     Route::get("/admin",function(){
     //     (auth('admin')->check()
@@ -41,7 +48,7 @@ Route::get('/dashboard/user', function () {
      }
      
 
-            
+        
     })->name("panel");
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -50,3 +57,5 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+});

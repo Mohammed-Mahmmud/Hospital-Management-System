@@ -173,43 +173,43 @@
                                 </a>
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item language"
+                                {{-- <a href="javascript:void(0);" class="dropdown-item notify-item language"
                                     data-lang="sp" title="Spanish">
                                     <img src="{{asset("dashboard/assets/images/flags/spain.svg")}}" alt="user-image" class="me-2 rounded"
                                         height="18">
                                     <span class="align-middle">Española</span>
-                                </a>
+                                </a> --}}
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item language"
+                                {{-- <a href="javascript:void(0);" class="dropdown-item notify-item language"
                                     data-lang="gr" title="German">
                                     <img src="{{asset("dashboard/assets/images/flags/germany.svg")}}" alt="user-image" class="me-2 rounded"
                                         height="18"> <span class="align-middle">Deutsche</span>
-                                </a>
+                                </a> --}}
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item language"
+                                {{-- <a href="javascript:void(0);" class="dropdown-item notify-item language"
                                     data-lang="it" title="Italian">
                                     <img src="{{asset("dashboard/assets/images/flags/italy.svg")}}" alt="user-image" class="me-2 rounded"
                                         height="18">
                                     <span class="align-middle">Italiana</span>
-                                </a>
+                                </a> --}}
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item language"
+                                {{-- <a href="javascript:void(0);" class="dropdown-item notify-item language"
                                     data-lang="ru" title="Russian">
                                     <img src="{{asset("dashboard/assets/images/flags/russia.svg")}}" alt="user-image" class="me-2 rounded"
                                         height="18">
                                     <span class="align-middle">русский</span>
-                                </a>
+                                </a> --}}
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item language"
+                                {{-- <a href="javascript:void(0);" class="dropdown-item notify-item language"
                                     data-lang="ch" title="Chinese">
                                     <img src="{{asset("dashboard/assets/images/flags/china.svg")}}" alt="user-image" class="me-2 rounded"
                                         height="18">
                                     <span class="align-middle">中国人</span>
-                                </a>
+                                </a> --}}
 
                                 <!-- item-->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item language"

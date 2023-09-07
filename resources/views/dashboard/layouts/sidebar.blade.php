@@ -1,5 +1,5 @@
- <!-- ========== App Menu ========== -->
- <div class="app-menu navbar-menu">
+ <!-- ========== App Menu ========== -->            
+ <div class="app-menu navbar-menu" >
     <!-- LOGO -->
     <div class="navbar-brand-box">
         <!-- Dark Logo-->
@@ -27,7 +27,7 @@
     </div>
 
     <div id="scrollbar">
-        <div class="container-fluid">
+        <div class="container-fluid" >
 
             <div id="two-column-menu">
             </div>
@@ -1255,6 +1255,7 @@
 
     <div class="sidebar-background"></div>
 </div>
+
 <!-- Left Sidebar End -->
 <!-- Vertical Overlay-->
 <div class="vertical-overlay"></div>

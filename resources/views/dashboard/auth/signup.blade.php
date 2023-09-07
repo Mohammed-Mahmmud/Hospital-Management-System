@@ -97,7 +97,6 @@ H-M-S | Sign Up
                                                     <input type="email" class="form-control" id="email" name="email"  placeholder="Enter email address"  required autocomplete="username">
                                                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
                                                     <div class="invalid-feedback">
-
                                                         Please enter email
                                                     </div>
                                                 </div> 
@@ -110,7 +109,6 @@ H-M-S | Sign Up
                                                     <input type="text" class="form-control" id="name" placeholder="Enter username" required type="text" name="name"  required autofocus autocomplete="name">
                                                     <div class="invalid-feedback">
                                                         <x-input-error :messages="$errors->get('name')" class="mt-2" />
-
                                                         Please enter username
                                                     </div>
                                                 </div>
