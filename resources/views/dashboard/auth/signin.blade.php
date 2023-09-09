@@ -76,8 +76,8 @@
                                 <div class="col-lg-6">
                                     <div class="p-lg-5 p-4">
                                         <div>
-                                            <h5 class="text-primary">Welcome Back !</h5>
-                                            <p class="text-muted">Login to continue to Hospital System.</p>
+                                            <h5 class="text-primary">{{ trans('Dashboard/login_trans.Welcome Back') }} !</h5>
+                                            <p class="text-muted">{{ trans("Dashboard/login_trans.Login to continue to Hospital System")}}</p>
                                         </div>
                                        
                                        {{-- handle error --}}
@@ -93,9 +93,9 @@
                                    {{-- end error --}}
                                         {{-- login options --}}
                                         <select class="form-select form-select-l" id="sectionChooser">
-                                            <option value="" selected disabled>login as </option>
-                                            <option value="user">Patient</option>
-                                            <option value="admin">Admin</option>
+                                            <option value="" selected disabled>{{ trans("Dashboard/login_trans.login as") }} </option>
+                                            <option value="user"> {{ trans('Dashboard/login_trans.Patient') }}  </option>
+                                            <option value="admin"> {{ trans('Dashboard/login_trans.Admin') }}  </option>
                                         </select>
                                         {{-- end options --}}
 
@@ -106,7 +106,7 @@
                                                     @csrf
 
                                                     <div class="mb-3">
-                                                        <label for="username" class="form-label">User Email</label>
+                                                        <label for="username" class="form-label">{{ trans('Dashboard/login_trans.User Email') }}</label>
                                                         <input type="email" class="form-control" name="email" id="useremail"
                                                             placeholder="Enter user mail" required autofocus
                                                             autocomplete="username" :value="old('email')">
@@ -117,10 +117,9 @@
 
                                                     <div class="mb-3">
                                                         <div class="float-end">
-                                                            <a href="auth-pass-reset-cover.html" class="text-muted">Forgot
-                                                                password?</a>
+                                                            <a href="auth-pass-reset-cover.html" class="text-muted">{{ trans('Dashboard/login_trans.Forgot password?') }}</a>
                                                         </div>
-                                                        <label class="form-label" for="password-input">User Password</label>
+                                                        <label class="form-label" for="password-input">{{ trans('Dashboard/login_trans.User Password') }}</label>
                                                         <div class="position-relative auth-pass-inputgroup mb-3">
                                                             <input type="password" name="password"
                                                                 class="form-control pe-5 password-input"
@@ -255,7 +254,7 @@
                                         {{-- end of login form --}}
                                     
                                         <div class="mt-5 text-center">
-                                           <p class="mb-0">Don't have an account ? <a href="{{ route('admin.register') }}"
+                                           <p class="mb-0">{{ trans("Dashboard/login_trans.Don't have an account ? ") }} <a href="{{ route('admin.register') }}"
                                                    class="fw-bold text-primary text-decoration-underline"> Register </a>
                                            </p>
                                        </div>

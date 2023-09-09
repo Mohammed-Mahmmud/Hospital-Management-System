@@ -38,7 +38,7 @@ class AdminController extends Controller
         return redirect()->intended(RouteServiceProvider::ADMIN);
     }
     
-        return redirect()->back()->withErrors([ 'name'=>"Wrong Admin Mail or Password"]);
+        return redirect()->back()->withErrors([ 'name'=>"trans('Dashboard/auth.failed')"]);
 }
     /**
      * Display the specified resource.

@@ -30,7 +30,7 @@ class AuthenticatedSessionController extends Controller
             return redirect()->intended(RouteServiceProvider::HOME);
         }
     
-            return redirect()->back()->withErrors([ 'name'=>"Wrong User Mail or Password"]);
+        return redirect()->back()->withErrors([ 'name'=>"trans('Dashboard/auth.failed')"]);
     }
     
 

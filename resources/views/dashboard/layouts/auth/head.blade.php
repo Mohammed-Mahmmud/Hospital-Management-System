@@ -8,13 +8,22 @@
 
     <!-- Layout config Js -->
     <script src="{{asset("dashboard/assets/js/layout.js")}}"></script>
-    <!-- Bootstrap Css -->
-    <link href="{{asset("dashboard/assets/css/bootstrap.min.css")}}" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
     <link href="{{asset("dashboard/assets/css/icons.min.css")}}" rel="stylesheet" type="text/css" />
     <!-- App Css-->
-    <link href="{{asset("dashboard/assets/css/app.min.css")}}" rel="stylesheet" type="text/css" />
+    @if(App::getLocale() == "ar")
+    <!-- Bootstrap Css -->
+    <link href="{{asset("dashboard/assets/css/bootstrap-rtl.min.css")}}" rel="stylesheet" type="text/css">
+    <!-- App Css-->
+    <link href="{{asset("dashboard/assets/css/app-rtl.min.css")}}" rel="stylesheet" type="text/css">
     <!-- custom Css-->
-    <link href="{{asset("dashboard/assets/css/custom.min.css")}}" rel="stylesheet" type="text/css" />
-    
+    <link href="{{asset("dashboard/assets/css/custom-rtl.min.css")}}" rel="stylesheet" type="text/css">
+@else
+    <!-- Bootstrap Css -->
+    <link href="{{asset("dashboard/assets/css/bootstrap.min.css")}}" rel="stylesheet" type="text/css">
+    <!-- App Css-->
+    <link href="{{asset("dashboard/assets/css/app.min.css")}}" rel="stylesheet" type="text/css">
+    <!-- custom Css-->
+    <link href="{{asset("dashboard/assets/css/custom.min.css")}}" rel="stylesheet" type="text/css">    
+    @endif
 @yield('css')
