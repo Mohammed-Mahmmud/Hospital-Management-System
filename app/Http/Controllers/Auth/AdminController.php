@@ -37,8 +37,8 @@ class AdminController extends Controller
         $request->session()->regenerate();
         return redirect()->intended(RouteServiceProvider::ADMIN);
     }
-    
-        return redirect()->back()->withErrors([ 'name'=>"trans('Dashboard/auth.failed')"]);
+    return redirect()->back();
+        // return redirect()->back()->withErrors([ 'name'=>"trans('Dashboard/auth.failed')"]);
 }
     /**
      * Display the specified resource.

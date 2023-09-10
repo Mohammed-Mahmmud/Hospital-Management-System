@@ -25,14 +25,14 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        if($request->authenticate()){
+        if ($request->authenticate()) {
             $request->session()->regenerate();
             return redirect()->intended(RouteServiceProvider::HOME);
         }
-    
-        return redirect()->back()->withErrors([ 'name'=>"trans('Dashboard/auth.failed')"]);
+        return redirect()->back();
+        // return redirect()->back()->withErrors(['name'=>"trans('Dashboard/login_trans.Failed')"]);
     }
-    
+
 
     /**
      * Destroy an authenticated session.

@@ -1,6 +1,6 @@
 <!doctype html>
-<html lang="{{App::getLocale()}}" data-layout="twocolumn" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none"
-    data-preloader="enable">
+<html lang="{{App::getLocale()}}" data-layout="vertical" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none"
+    data-preloader="enable" data-bs-theme = "dark">
 
 <head>  
     @include('dashboard.layouts.head')
