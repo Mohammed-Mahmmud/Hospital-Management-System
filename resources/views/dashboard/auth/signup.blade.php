@@ -90,7 +90,7 @@ H-M-S | Sign Up
                                         </div>
                                     @endif
                                     {{-- end error --}}
-                                        <select class="form-select form-select-l" id="sectionChooser">
+                                        <select class="form-select form-select-l fs-16 mb-1" id="sectionChooser">
                                             <option value="" selected disabled>Register as </option>
                                             <option value="user">Patient</option>
                                             <option value="admin">Admin</option>
@@ -289,7 +289,7 @@ H-M-S | Sign Up
                                     </div>
                                     
                                     <div class="mt-5 text-center">
-                                        <p class="mb-0">Already have an account ? <a href="{{ route("admin.login") }}" class="fw-bold text-primary text-decoration-underline">Login</a></p>
+                                        <p class="mb-0">Already have an account ? <a href="{{ route("user.login") }}" class="fw-bold text-primary text-decoration-underline">Login</a></p>
                                     </div>
                                     </div>
                                 </div>

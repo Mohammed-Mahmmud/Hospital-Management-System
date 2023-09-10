@@ -4,7 +4,6 @@
 /* customized font */
 @import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
 
-
 @font-face {
     font-family: hkgrotesk;
     src: url(../fonts/hkgrotesk-light.eot);
@@ -4591,7 +4590,8 @@ html {
 }
 
 :is(.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6) {
-    font-family: "Public Sans", sans-serif
+    /* font-family: "Public Sans", sans-serif */
+    font-family: 'Cairo', sans-serif
 }
 
 label {

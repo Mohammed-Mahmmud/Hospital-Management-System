@@ -92,11 +92,15 @@
                                    @endif
                                    {{-- end error --}}
                                         {{-- login options --}}
-                                        <select class="form-select form-select-l" id="sectionChooser">
-                                            <option value="" selected disabled>{{ trans("Dashboard/login_trans.login as") }} </option>
-                                            <option value="user"> {{ trans('Dashboard/login_trans.Patient') }}  </option>
-                                            <option value="admin"> {{ trans('Dashboard/login_trans.Admin') }}  </option>
-                                        </select>
+                                    
+                                       <div  class="fs-16 mb-1">
+
+                                           <select class="form-select form-select-l fs-16 mb-1" id="sectionChooser">
+                                               <option value="" selected disabled>{{ trans("Dashboard/login_trans.login as") }} </option>
+                                               <option value="user"> {{ trans('Dashboard/login_trans.Patient') }}  </option>
+                                               <option value="admin"> {{ trans('Dashboard/login_trans.Admin') }}  </option>
+                                            </select>
+                                        </div>
                                         {{-- end options --}}
 
                                         {{-- user form --}}
