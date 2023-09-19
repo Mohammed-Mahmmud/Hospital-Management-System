@@ -16,15 +16,16 @@ class AdminController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {   
+    {
         return view("dashboard.admin.home");
     }
+
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
-    {  
+    {
         return view("dashboard.admin.home");
     }
 
@@ -64,7 +65,7 @@ class AdminController extends Controller
         //
     }
 
-    
+
     public function destroy(Request $request) : RedirectResponse
     {
         Auth::guard('admin')->logout();

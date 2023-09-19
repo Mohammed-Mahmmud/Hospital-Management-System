@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'Menu' => 'Menu ',
+    'Menu' => 'Menu',
 
 
 ];
