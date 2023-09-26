@@ -1,4 +1,4 @@
- <!-- ========== App Menu ========== -->            
+ <!-- ========== App Menu ========== -->
  <div class="app-menu navbar-menu" >
     <!-- LOGO -->
     <div class="navbar-brand-box">
@@ -36,13 +36,13 @@
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebardashboards" data-bs-toggle="collapse"
                         role="button" aria-expanded="false" aria-controls="sidebardashboards">
-                        <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">dashboards</span>
+                        <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">{{trans('Dashboard/home.Sections')}}</span>
                     </a>
                     <div class="collapse menu-dropdown" id="sidebardashboards">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="dashboard-analytics.html" class="nav-link" data-key="t-analytics">
-                                    Analytics </a>
+                                <a href="{{route('admin.sections.index')}}" class="nav-link" data-key="t-analytics">
+                                    {{trans('Dashboard/home.view-sections')}}</a>
                             </li>
                             <li class="nav-item">
                                 <a href="dashboard-crm.html" class="nav-link" data-key="t-crm"> CRM </a>
