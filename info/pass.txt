@@ -1,0 +1,5 @@
+	*User
+mohamed@mail.com : 12345678 	
+
+	*Admin
+admin@mail.com : 12345678@Admin
